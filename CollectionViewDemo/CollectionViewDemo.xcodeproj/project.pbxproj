@@ -15,6 +15,9 @@
 		D508DB3F1C744FE4006DF69D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D508DB3D1C744FE4006DF69D /* LaunchScreen.storyboard */; };
 		D508DB4A1C744FE4006DF69D /* CollectionViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D508DB491C744FE4006DF69D /* CollectionViewDemoTests.m */; };
 		D508DB551C744FE4006DF69D /* CollectionViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D508DB541C744FE4006DF69D /* CollectionViewDemoUITests.m */; };
+		D508DB651C745159006DF69D /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D508DB641C745159006DF69D /* CollectionView.m */; };
+		D508DB681C7452D6006DF69D /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D508DB671C7452D6006DF69D /* CollectionViewCell.m */; };
+		D508DB6B1C745352006DF69D /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D508DB6A1C745352006DF69D /* CollectionReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		D508DB501C744FE4006DF69D /* CollectionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D508DB541C744FE4006DF69D /* CollectionViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewDemoUITests.m; sourceTree = "<group>"; };
 		D508DB561C744FE4006DF69D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D508DB631C745159006DF69D /* CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionView.h; sourceTree = "<group>"; };
+		D508DB641C745159006DF69D /* CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionView.m; sourceTree = "<group>"; };
+		D508DB661C7452D6006DF69D /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		D508DB671C7452D6006DF69D /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		D508DB691C745352006DF69D /* CollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
+		D508DB6A1C745352006DF69D /* CollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +110,7 @@
 		D508DB2E1C744FE4006DF69D /* CollectionViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D508DB621C7450F7006DF69D /* CollectionView */,
 				D508DB321C744FE4006DF69D /* AppDelegate.h */,
 				D508DB331C744FE4006DF69D /* AppDelegate.m */,
 				D508DB351C744FE4006DF69D /* ViewController.h */,
@@ -138,6 +148,19 @@
 				D508DB561C744FE4006DF69D /* Info.plist */,
 			);
 			path = CollectionViewDemoUITests;
+			sourceTree = "<group>";
+		};
+		D508DB621C7450F7006DF69D /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D508DB631C745159006DF69D /* CollectionView.h */,
+				D508DB641C745159006DF69D /* CollectionView.m */,
+				D508DB661C7452D6006DF69D /* CollectionViewCell.h */,
+				D508DB671C7452D6006DF69D /* CollectionViewCell.m */,
+				D508DB691C745352006DF69D /* CollectionReusableView.h */,
+				D508DB6A1C745352006DF69D /* CollectionReusableView.m */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D508DB371C744FE4006DF69D /* ViewController.m in Sources */,
+				D508DB681C7452D6006DF69D /* CollectionViewCell.m in Sources */,
 				D508DB341C744FE4006DF69D /* AppDelegate.m in Sources */,
+				D508DB651C745159006DF69D /* CollectionView.m in Sources */,
 				D508DB311C744FE4006DF69D /* main.m in Sources */,
+				D508DB6B1C745352006DF69D /* CollectionReusableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
