@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "CollectionView.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    CollectionView *cv = [[CollectionView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:cv];
 }
 
 - (void)didReceiveMemoryWarning {
