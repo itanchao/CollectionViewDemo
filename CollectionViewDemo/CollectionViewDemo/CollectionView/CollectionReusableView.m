@@ -19,7 +19,7 @@
         [self addSubview:view];
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.mas_equalTo(self).offset(15);
-            make.bottom.mas_equalTo(self).offset(10);
+            make.bottom.mas_equalTo(self).offset(-10);
             make.width.equalTo(@4);
         }];
         view.backgroundColor = [UIColor blueColor];
@@ -38,5 +38,9 @@
         view;
     });
     return self;
+}
+- (void)setSectionName:(NSString *)sectionName{
+    _sectionName = sectionName;
+    self.desLbl.text = sectionName;
 }
 @end

@@ -20,9 +20,12 @@
         UIImageView *view = [[UIImageView alloc]init];
         [self addSubview:view];
         view.image = [UIImage imageNamed:@"cat"];
+       
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.mas_equalTo(self);
-            make.height.equalTo(@100);
+            make.height.equalTo(@(({
+                (frame.size.height == 128) ? 100 : 70;
+            })));
         }];
         view;
     });

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectionReusableView : UICollectionReusableView
-
+@property (nonatomic, copy) NSString *sectionName;
 @end
