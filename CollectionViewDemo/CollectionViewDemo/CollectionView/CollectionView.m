@@ -26,7 +26,9 @@
 //     组间距
 //    layout.sectionInset = UIEdgeInsetsMake(10, 15, 10, 15);
     self = [super initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
+//    这里为了解决不同大小cell复用错乱的问题，我注册了两种cell
     [self registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [self registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell2"];
     [self registerClass:[CollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     self.dataSource =self;
     self.delegate = self;
@@ -45,7 +47,8 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identify = @"cell";
-    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+    static NSString *identify2 = @"cell2";
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:(indexPath.section ==0?identify:identify2) forIndexPath:indexPath];
     [cell sizeToFit];
     if (!cell) {
         NSLog(@"无法创建CollectionViewCell时打印，自定义的cell就不可能进来了。");
@@ -68,11 +71,12 @@
         return reusableview;
     }
     reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
+    reusableview.sectionName = (indexPath.section == 0)?@"车型亮点":@"隐藏功能";
     return reusableview;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  indexPath.section == 0 ? CGSizeMake(165, 128) : CGSizeMake(75, 70);
+    return  indexPath.section == 0 ? CGSizeMake(165, 144) : CGSizeMake(75, 70);
 }
 //定义每个UICollectionView 的间距
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
@@ -85,7 +89,7 @@
 {
     //    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     //    cell.backgroundColor = [UIColor redColor];
-    NSLog(@"选择%ld",indexPath.row);
+    NSLog(@"选择%ld组第%ld个",indexPath.section,indexPath.row);
 }
 //返回这个UICollectionView是否可以被选择
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath

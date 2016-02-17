@@ -18,23 +18,25 @@
     self = [super initWithFrame:frame];
     self.iconView = ({
         UIImageView *view = [[UIImageView alloc]init];
-        [self addSubview:view];
+        [self.contentView addSubview:view];
         view.image = [UIImage imageNamed:@"cat"];
-       
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.mas_equalTo(self);
             make.height.equalTo(@(({
-                (frame.size.height == 128) ? 100 : 70;
+                frame.size.height * 0.7;
             })));
         }];
         view;
     });
+    NSLog(@"%f",frame.size.height);
     self.desLabel = ({
         UILabel *lbl = [[UILabel alloc]init];
-        [self addSubview:lbl];
-        lbl.font = [UIFont systemFontOfSize:10];
+        [self.contentView addSubview:lbl];
+        lbl.font = [UIFont systemFontOfSize:({
+            frame.size.height/9.0;
+        })];
         [lbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self);
+//            make.bottom.mas_equalTo(self);
             make.centerX.mas_equalTo(self);
             make.top.mas_equalTo(self.iconView.mas_bottom).offset(10);
         }];
